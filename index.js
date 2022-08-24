@@ -34,7 +34,7 @@ upgradebtn.addEventListener("click", () => {
   } else {
     moneyPerClick += 10;
     money -= coutUpgrade;
-    coutUpgrade += (coutUpgrade *1.5);
+    coutUpgrade += (coutUpgrade *1.2);
     upgrade.textContent = coutUpgrade;
     nombreclick.textContent = nbClick;
     curentMoney.textContent = money;
