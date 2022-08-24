@@ -30,11 +30,11 @@ img.addEventListener("mouseup", () => {
 upgradebtn.addEventListener("click", () => {
   console.log("test");
   if (money < coutUpgrade) {
-    alert("Rentre chez ta mère, t'es trop pauvre !");
+    alert("T'es trop pauvre !");
   } else {
     moneyPerClick += 10;
     money -= coutUpgrade;
-    coutUpgrade += 500;
+    coutUpgrade += (coutUpgrade *1.5);
     upgrade.textContent = coutUpgrade;
     nombreclick.textContent = nbClick;
     curentMoney.textContent = money;
