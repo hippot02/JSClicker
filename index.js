@@ -4,11 +4,13 @@ const upgradebtn = document.getElementById("upGrade");
 const nombreclick = document.getElementById("nbClick");
 const curentMoney = document.getElementById("currentMoney");
 const mpc = document.getElementById("moneyPerClick");
+const aps = document.getElementById("argentParSec");
 
 var nbClick = 0;
 var money = 0;
 var moneyPerClick = 10;
 var coutUpgrade = 500;
+var argentParSeconde = 5;
 
 img.addEventListener("mousedown", () => {
   img.style.transform = "rotate(2deg)";
@@ -16,10 +18,11 @@ img.addEventListener("mousedown", () => {
   money += moneyPerClick;
   console.log(nbClick);
   console.log(money);
-  upgrade.textContent = coutUpgrade;
-  nombreclick.textContent = nbClick;
-  curentMoney.textContent = money;
-  mpc.textContent = moneyPerClick;
+  // upgrade.textContent = coutUpgrade;
+  // nombreclick.textContent = nbClick;
+  // curentMoney.textContent = money;
+  // mpc.textContent = moneyPerClick;
+  // aps.textContent = argentParSeconde;
   ring();
 });
 
@@ -30,15 +33,16 @@ img.addEventListener("mouseup", () => {
 upgradebtn.addEventListener("click", () => {
   console.log("test");
   if (money < coutUpgrade) {
-    alert("Rentre chez ta mère, t'es trop pauvre !");
+    alert("T'es trop pauvre !");
   } else {
     moneyPerClick += 10;
     money -= coutUpgrade;
-    coutUpgrade += 500;
-    upgrade.textContent = coutUpgrade;
+    coutUpgrade += coutUpgrade * 1.2;
+    argentParSeconde += 5;
+    // upgrade.textContent = coutUpgrade;
     nombreclick.textContent = nbClick;
-    curentMoney.textContent = money;
-    mpc.textContent = moneyPerClick;
+    // curentMoney.textContent = money;
+    // mpc.textContent = moneyPerClick;
   }
 });
 
@@ -47,3 +51,15 @@ const ring = () => {
   audio.src = "gnomed.mp3";
   audio.play();
 };
+
+const loop = () => {
+  money += argentParSeconde;
+  curentMoney.textContent = money;
+  upgrade.textContent = coutUpgrade;
+  curentMoney.textContent = money;
+  mpc.textContent = moneyPerClick;
+  aps.textContent = argentParSeconde;
+  setTimeout(oui, 1000);
+};
+
+loop();
