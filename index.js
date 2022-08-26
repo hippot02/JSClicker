@@ -12,6 +12,17 @@ var moneyPerClick = 10;
 var coutUpgrade = 500;
 var argentParSeconde = 5;
 
+// if (
+//   int(localStorage.getItem("money")) != 0 &&
+//   int(localStorage.getItem("nbclick")) != 0
+// ) {
+//   nbClick = int(localStorage.getItem("nbclick"));
+//   money = int(localStorage.getItem("money"));
+//   moneyPerClick = int(localStorage.getItem("moneyperclick"));
+//   coutUpgrade = int(localStorage.getItem("coutupgrade"));
+//   argentParSeconde = int(localStorage.getItem("argentparseconde"));
+// }
+
 img.addEventListener("mousedown", () => {
   img.style.transform = "rotate(2deg)";
   nbClick++;
@@ -19,8 +30,8 @@ img.addEventListener("mousedown", () => {
   console.log(nbClick);
   console.log(money);
   // upgrade.textContent = coutUpgrade;
-  // nombreclick.textContent = nbClick;
-  // curentMoney.textContent = money;
+  nombreclick.textContent = nbClick;
+  curentMoney.textContent = money;
   // mpc.textContent = moneyPerClick;
   // aps.textContent = argentParSeconde;
   ring();
@@ -37,7 +48,7 @@ upgradebtn.addEventListener("click", () => {
   } else {
     moneyPerClick += 10;
     money -= coutUpgrade;
-    coutUpgrade += coutUpgrade * 1.2;
+    coutUpgrade *= 1.6;
     argentParSeconde += 5;
     // upgrade.textContent = coutUpgrade;
     nombreclick.textContent = nbClick;
@@ -59,7 +70,16 @@ const loop = () => {
   curentMoney.textContent = money;
   mpc.textContent = moneyPerClick;
   aps.textContent = argentParSeconde;
-  setTimeout(oui, 1000);
+  setTimeout(loop, 1000);
 };
+
+// const cookie = () => {
+//   console.log("test");
+//   localStorage.setItem("money", money);
+//   localStorage.setItem("nbclick", nbClick);
+//   localStorage.setItem("moneyperclick", moneyPerClick);
+//   localStorage.setItem("coutupgrade", coutUpgrade);
+//   localStorage.setItem("argentparseconde", argentParSeconde);
+// };
 
 loop();
